@@ -1,0 +1,10 @@
+title: Bowknot
+description: ふたりだけのキャンバスとカレンダー
+lang: ja
+markdown: kramdown
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+exclude:
+  - README.md

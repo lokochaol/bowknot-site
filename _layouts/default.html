@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title and page.title != site.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-2 -2 104 86'%3E%3Cpath fill='%2333406b' d='M50 25C44 25 41.5 28 41.5 35.5S44 46 50 46s8.5-3 8.5-10.5S56 25 50 25Z M42 31C34 18 31 1 20 0 7-1 0 14 3 29c-5 6-3 19 6 26 11 9 23-9 33-11Z M58 31C66 18 69 1 80 0c13-1 20 14 17 29 5 6 3 19-6 26-11 9-23-9-33-11Z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #f7f6f2; --surface: #ffffff; --ink: #33406b; --soft: #5f6785; --faint: #8b91a8; --line: #e4e1d8; --accent: #b5603c; }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.85 -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  header { border-bottom: 1px solid var(--line); background: var(--bg); }
+  .bar { max-width: 760px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: "Shippori Mincho", serif; font-weight: 700; font-size: 20px; }
+  .brand .bow { width: 34px; height: auto; }
+  nav { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; }
+  nav a { color: var(--soft); text-decoration: none; }
+  nav a[aria-current="page"] { color: var(--ink); font-weight: 700; }
+  main { max-width: 760px; margin: 0 auto; padding: 28px 20px 56px; }
+  .doc { background: var(--surface); border-radius: 18px; padding: 28px 28px 32px; box-shadow: 0 8px 24px rgba(47,58,92,.08); }
+  h1, h2 { font-family: "Shippori Mincho", serif; line-height: 1.45; }
+  h1 { font-size: 26px; margin: 0 0 6px; }
+  h2 { font-size: 19px; margin: 34px 0 8px; padding-top: 6px; }
+  h3 { font-size: 15px; margin: 22px 0 6px; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 26px 0; }
+  ul, ol { padding-left: 1.4em; }
+  li { margin: 3px 0; }
+  code { font-size: 13px; background: #f1efe8; padding: 1px 5px; border-radius: 5px; }
+  .hero { text-align: center; padding: 26px 0 10px; }
+  .hero .bow { width: 92px; height: auto; }
+  .hero h1 { font-size: 34px; margin-top: 10px; }
+  .hero p { color: var(--soft); margin: 4px 0 0; }
+  footer { max-width: 760px; margin: 0 auto; padding: 0 20px 40px; color: var(--faint); font-size: 12px; text-align: center; }
+  @media (max-width: 520px) { .doc { padding: 22px 18px 26px; border-radius: 14px; } h1 { font-size: 23px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="{{ '/' | relative_url }}"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="bow" viewBox="-2 -2 104 86"><g fill="#33406b"><path d="M48 37 C40 54 43 69 31 82 L32 73 L23 73 C36 61 34 52 38 44 L38 36 Z"/><path d="M48 37 C40 54 43 69 31 82 L32 73 L23 73 C36 61 34 52 38 44 L38 36 Z" transform="translate(100 0) scale(-1 1)"/><path fill-rule="evenodd" d="M42 31 C34 18 31 1 20 0 C7 -1 0 14 3 29 C-2 35 0 48 9 55 C20 64 32 46 42 44 Z M9 26 C7 17 11 7 19 7 C27 7 31 21 35 28 C24 23 17 23 9 26 Z M7 40 C9 48 13 52 18 50 C25 47 30 42 35 40 C24 37 15 37 7 40 Z"/><path fill-rule="evenodd" d="M42 31 C34 18 31 1 20 0 C7 -1 0 14 3 29 C-2 35 0 48 9 55 C20 64 32 46 42 44 Z M9 26 C7 17 11 7 19 7 C27 7 31 21 35 28 C24 23 17 23 9 26 Z M7 40 C9 48 13 52 18 50 C25 47 30 42 35 40 C24 37 15 37 7 40 Z" transform="translate(100 0) scale(-1 1)"/><path d="M50 25 C44 25 41.5 28 41.5 35.5 C41.5 43 44 46 50 46 C56 46 58.5 43 58.5 35.5 C58.5 28 56 25 50 25 Z"/></g></svg><span>Bowknot</span></a>
+    <nav>
+      <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>ホーム</a>
+      <a href="{{ '/support' | relative_url }}"{% if page.url == '/support.html' %} aria-current="page"{% endif %}>サポート</a>
+      <a href="{{ '/privacy-policy' | relative_url }}"{% if page.url == '/privacy-policy.html' %} aria-current="page"{% endif %}>プライバシーポリシー</a>
+      <a href="{{ '/terms' | relative_url }}"{% if page.url == '/terms.html' %} aria-current="page"{% endif %}>利用規約</a>
+    </nav>
+  </div>
+</header>
+<main>
+  {% if page.hero %}
+  <div class="hero"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="bow" viewBox="-2 -2 104 86"><g fill="#33406b"><path d="M48 37 C40 54 43 69 31 82 L32 73 L23 73 C36 61 34 52 38 44 L38 36 Z"/><path d="M48 37 C40 54 43 69 31 82 L32 73 L23 73 C36 61 34 52 38 44 L38 36 Z" transform="translate(100 0) scale(-1 1)"/><path fill-rule="evenodd" d="M42 31 C34 18 31 1 20 0 C7 -1 0 14 3 29 C-2 35 0 48 9 55 C20 64 32 46 42 44 Z M9 26 C7 17 11 7 19 7 C27 7 31 21 35 28 C24 23 17 23 9 26 Z M7 40 C9 48 13 52 18 50 C25 47 30 42 35 40 C24 37 15 37 7 40 Z"/><path fill-rule="evenodd" d="M42 31 C34 18 31 1 20 0 C7 -1 0 14 3 29 C-2 35 0 48 9 55 C20 64 32 46 42 44 Z M9 26 C7 17 11 7 19 7 C27 7 31 21 35 28 C24 23 17 23 9 26 Z M7 40 C9 48 13 52 18 50 C25 47 30 42 35 40 C24 37 15 37 7 40 Z" transform="translate(100 0) scale(-1 1)"/><path d="M50 25 C44 25 41.5 28 41.5 35.5 C41.5 43 44 46 50 46 C56 46 58.5 43 58.5 35.5 C58.5 28 56 25 50 25 Z"/></g></svg><h1>Bowknot</h1><p>{{ site.description }}</p></div>
+  {% endif %}
+  <article class="doc">
+    {{ content }}
+  </article>
+</main>
+<footer>© 2026 Bowknot developer team</footer>
+</body>
+</html>
